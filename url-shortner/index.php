@@ -21,7 +21,6 @@
             }   
         }
     }
-
 ?>
 
 
@@ -48,7 +47,7 @@
         <?php
             $sql2 = mysqli_query($conn, "SELECT * FROM url ORDER BY id DESC");
             if(mysqli_num_rows($sql2) > 0){
-             ?>
+        ?>
                 <div class="statistics">
                     <?php
                         $sql3 = mysqli_query($conn, "SELECT COUNT(*) FROM url");
@@ -75,7 +74,7 @@
                 </div>
                 <?php
                 while($row = mysqli_fetch_assoc($sql2)){
-                    ?>
+                ?>
                     <div class="data">
                         <li>
                             <a href="http://localhost/url-shortner/<?php echo $row['shorten_url']?>" target="_blank">
@@ -105,7 +104,6 @@
                     </div>
                 <?php
                 }
-
             }
             ?>
         </div>
@@ -114,8 +112,8 @@
     <div class="blur-effect"></div>
 
     <div class="popup-box">
+                
         <div class="info-box">Your short link is ready. You can edit this link now, no changes can be made once you saved it. </div>
-
         <form action="#">
             <label>Edit your shortened URL</label>
             <input type="text" spellcheck="false" value="example.com/xyz123">
@@ -123,9 +121,7 @@
             <button>Save</button>
         </form>
     </div>
-    
 
     <script src="script.js"></script>
-
 </body>
 </html>
