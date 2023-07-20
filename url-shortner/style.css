@@ -201,7 +201,7 @@ form button:hover{
     visibility: hidden;
     transition: all 0.3s ease;
 }
-/* will use in js */
+
 .popup-box.show{
     opacity: 1;
     visibility: visible;
@@ -216,7 +216,7 @@ form button:hover{
     font-size: 17px;
     text-align: center;
 }
-/* will use in js */ 
+
 .info-box.error{
     color: #721c24;
     background:#f8d7da;
