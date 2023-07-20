@@ -11,7 +11,7 @@ copyBtn = popupBox.querySelector(".copy-icon"),
 infoBox = popupBox.querySelector(".info-box");
 
 form.onsubmit = (e)=>{
-    e.preventDefault(); //to prevent form from submitting
+    e.preventDefault();
 }
 
 shortenBtn.onclick = ()=>{
@@ -22,13 +22,12 @@ shortenBtn.onclick = ()=>{
 
     xhr.onload = ()=>{
 
-        if(xhr.readyState == 4 && xhr.status == 200){//if ajax request status is ok/success
+        if(xhr.readyState == 4 && xhr.status == 200){
             let data = xhr.response;
             // console.log(xhr.response);
             
             if(data.length <= 100){
-                
-
+            
                 blurEffect.style.display = "block";
                 popupBox.classList.add("show");
 
@@ -52,26 +51,25 @@ shortenBtn.onclick = ()=>{
                         if(xhr2.readyState == 4 && xhr2.status == 200){
                             let data = xhr2.response;
                             if(data == "success"){
-                                location.reload();  //reload the pg 
+                                location.reload(); 
                             }else{
                                 infoBox.innerText = data;
                                 infoBox.classList.add("error");
                             }
                         }
                     }
-                    //sending two data/value from ajax to php
+                    //sending data/value from ajax to php
                     let short_url = shortenURL.value;
                     let hidden_url = data;
                     xhr2.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                     xhr2.send("shorten_url="+short_url+"&hidden_url="+hidden_url);
-
                 }
             }else{
                 alert(data);
             }
         }
     }
-    //sending form data to php file
-    let formData = new FormData(form);  //creating new FormData obj
+
+    let formData = new FormData(form);
     xhr.send(formData); //sending form value to php
 }
