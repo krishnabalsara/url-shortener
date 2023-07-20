@@ -1,5 +1,5 @@
 <?php
-    //getting these values wihch are sent from ajax to php
+    
     include "config.php";
 
     $og_url = mysqli_real_escape_string($conn, $_POST['shorten_url']);
@@ -8,7 +8,7 @@
 
     if(!empty($full_url)){
         $domain = "localhost";
-        //checking if user have edited or removed domain name
+        //checking if user has edited or removed domain name
         if(preg_match("/{$domain}/i", $full_url) && preg_match("/\//i", $full_url)){
             $explodeURL = explode('/', $full_url);
             $short_url = end($explodeURL);  //getting last valuue of full url
